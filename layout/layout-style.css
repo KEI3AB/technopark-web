@@ -1,0 +1,229 @@
+* {
+    box-sizing: border-box;
+    padding: 0%;
+    margin: 0%;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+
+    background-color: white;
+    border-bottom: 1px solid gray;   
+}
+
+header .logo {
+    width: 30%;
+    margin: 1%;
+
+    display: flex;
+    align-items: center;
+}
+
+header .site-name {
+    font-size: 40px;
+    font-family: sans-serif;
+    font-weight: 200;
+}
+
+header .site-avatar {
+    border: none;
+    border-radius: 6px;
+    margin: 10px;
+    width: 80px;
+}
+
+header .search {
+    position: absolute;
+    left: 40%;
+    border: 1px solid gray;
+    border-radius: 6px;
+    width: 400px;
+    height: 36px;
+    margin: 0 auto;
+
+    padding: 2px;
+}
+header .search:focus-within {
+    outline: 1px solid rgb(120, 84, 228);
+    outline-offset: 2px;
+}
+
+header input[type="text"] {
+    font-size: 18px;
+
+    outline: none;
+    background: none;
+
+    border: none;
+    display: inline-flex;
+    padding: 4px;
+
+    width: 320px;
+}
+
+header .search-icon {
+    width: 12px;
+    height: 12px;
+
+    margin-left: 10px;
+}
+
+header .search-button {
+    flex: right;
+    font-size: 18px;
+
+    padding: 2px;
+    margin-right: 2px;
+
+    height: 26px;
+
+    border: none;
+    border-radius: 3px;
+    background-color: white;
+}
+header .search-button:hover {
+    background-color: rgb(209, 209, 209);
+    transition: background-color 0.25s ease;
+}
+
+header .profile {
+    justify-self: flex-end;
+    margin-right: 8%;
+}
+
+header .profile #not-authorized {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+
+    display: none; /**/
+}
+
+header .profile #authorized {
+    display: flex;
+    align-items: center;
+
+    /*display: none; /**/
+}
+
+#not-authorized .login-button {
+    width: 70px;
+    padding: 4px;
+    
+
+    font-size: 18px;
+    font-family: sans-serif;
+    color: rgb(120, 84, 228);
+
+    border: 1px solid rgb(120, 84, 228);
+    border-radius: 6px;
+    background-color: white;
+}
+#not-authorized .login-button:hover {
+    background-color: rgb(172, 211, 255);
+    transition: background-color 0.25s ease;
+}
+
+#not-authorized .signup-button {
+    width: 90px;
+    padding: 5px;
+
+    font-size: 18px;
+    font-family: sans-serif;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+    background-color: rgb(120, 84, 228);
+}
+#not-authorized .signup-button:hover {
+    background-color: rgb(70, 65, 200);
+    transition: background-color 0.25s ease;
+}
+
+#authorized .user-avatar {
+    border: none;
+    border-radius: 50%;
+    margin: 10px;
+    width: 50px;
+}
+
+#authorized .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+#authorized .username {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: sans-serif;
+}
+
+#authorized .user-links {
+    display: flex;
+    gap: 24px;
+}
+
+#authorized .user-links a {
+    font-size: 16px;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+#authorized .user-links a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* Конец header-а. Ниже - стиль блока с предложениями. */
+
+aside {
+    width: 15%;
+    margin-top: 24px;
+    margin-right: 75px;
+}
+
+.offers {
+    display: grid;
+
+    margin-top: 1%;
+    margin-right: 4%;
+
+    font-family: sans-serif;
+}
+
+.offers h1 {
+    font-size: 36px;
+}
+
+.popular-tags > .tags, .best-members > .members {
+    display: flex;
+    flex-wrap: wrap;
+    width: 250px;
+    gap: 18px;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.tag, .member {
+    font-size: 20px;
+
+    text-decoration: none;
+}
+
+.blueviolet-paragraph { color: blueviolet; }
+.brown-paragraph { color: brown; }
+.chartreuse-paragraph { color: chartreuse; }
+.orange-paragraph { color: orange; }
+.red-paragraph { color: red; }
+

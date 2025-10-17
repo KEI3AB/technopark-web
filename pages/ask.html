@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../layout/layout-style.css">
+    <link rel="stylesheet" href="../styles/ask-style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img class="site-avatar" src="../images/site-avatar.png" alt="Site logo">
+            <p class="site-name">Ask Eldar</p>
+        </div>
+        <div class="search">
+            <img class="search-icon" src="../images/loupe-icon.png" alt="">
+            <input type="text" name="text" placeholder="search">
+            <button class="search-button">ASK!</button>
+        </div>
+        <div class="profile">
+            <div id="not-authorized">
+                <button class="login-button">Log in</button>
+                <button class="signup-button">Sign up</button>
+            </div>
+            <div id="authorized">
+                <img class="user-avatar" src="../images/DrPepper.png" alt="Avatar">
+                <div class="usef-info">
+                    <p class="username">Dr. Pepper</p>
+                    <div class="user-links">
+                        <a href="#">Settings</a>
+                        <a href="#">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="main-container">
+            <h1>New question</h1>
+            <div class="question-form">
+                <div class="question-title">
+                    <p>Title</p>
+                    <input type="title" name="title-field" placeholder="Title">
+                </div>
+                <div type="error" class="question-title-error"><p>You must enter the title.</p></div>
+                <div class="question-text">
+                    <p>Text</p>
+                    <textarea type="question-area" name="question-field" placeholder="Your question"></textarea>
+                </div>
+                <div type="error" class="question-text-error"><p>The question input filed cannot be empty.</p></div>
+                <div class="question-tags">
+                    <p>Tags</p>
+                    <input type="tags" name="tags-field" placeholder="Tags">
+                </div>
+                <div type="error" class="question-tags-error"><p>You must enter at least one tag.</p></div>
+                <button class="ask-button">ASK!</button>
+            </div>
+        </div>
+        <aside>
+            <div class="offers">
+                <div class="popular-tags">
+                    <h1>Popular tags</h1>
+                    <nav class="tags">
+                        <div class="tag">
+                            <p class="red-paragraph">Perl</p>
+                        </div>
+                        <div class="tag">
+                            <p class="orange-paragraph">SQL</p>
+                        </div>
+                        <div class="tag">
+                            <p class="brown-paragraph">C++</p>
+                        </div>
+                        <div class="tag">
+                            <p class="blueviolet-paragraph">Golang</p>
+                        </div>
+                        <div class="tag">
+                            <p class="brown-paragraph">Web3</p>
+                        </div>
+                        <div class="tag">
+                            <p class="orange-paragraph">DJango</p>
+                        </div>
+                        <div class="tag">
+                            <p class="chartreuse-paragraph">Firefox</p>
+                        </div>
+                        <div class="tag">
+                            <p class="red-paragraph">Linux</p>
+                        </div>
+                        <div class="tag">
+                            <p class="blueviolet-paragraph">HTML</p>
+                        </div>
+                    </nav>
+                </div>
+                <div class="best-members">
+                    <h1>Best members</h1>
+                    <nav class="members">
+                        <div class="member">
+                            <p class="blueviolet-paragraph">Pavel Durov</p>
+                        </div>
+                        <div class="member">
+                            <p class="brown-paragraph">Pickle Rick</p>
+                        </div>
+                        <div class="member">
+                            <p class="orange-paragraph">Oleg Bunin</p>
+                        </div>
+                        <div class="member">
+                            <p class="red-paragraph">Kreopalov</p>
+                        </div>
+                        <div class="member">
+                            <p class="chartreuse-paragraph">RK6_enjoyer</p>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </aside>
+    </main>
+</body>

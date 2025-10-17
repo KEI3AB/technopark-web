@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../layout/layout-style.css">
+    <link rel="stylesheet" href="../styles/registration-style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img class="site-avatar" src="../images/site-avatar.png" alt="Site logo">
+            <p class="site-name">Ask Eldar</p>
+        </div>
+        <div class="search">
+            <img class="search-icon" src="../images/loupe-icon.png" alt="">
+            <input type="text" name="text" placeholder="search">
+            <button class="search-button">ASK!</button>
+        </div>
+        <div class="profile">
+            <div id="not-authorized">
+                <button class="login-button">Log in</button>
+                <button class="signup-button">Sign up</button>
+            </div>
+            <div id="authorized">
+                <img class="user-avatar" src="../images/DrPepper.png" alt="Avatar">
+                <div class="usef-info">
+                    <p class="username">Dr. Pepper</p>
+                    <div class="user-links">
+                        <a href="#">Settings</a>
+                        <a href="#">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="main-container">
+            <h1>Registration</h1>
+            <div type="error" class="login-error"><p>Sorry, this login is busy!</p></div>
+            <div type="error" class="email-error"><p>Sorry, this email address already registered!</p></div>
+            <div type="error" class="password-error"><p>Sorry, your password too easy!</p></div>
+            <div type="error" class="password-repeat-error"><p>Sorry, you entered a different passwords!</p></div>
+            <div type="error" class="avatar-error"><p>Sorry, bad route to avatar!</p></div>
+            <div class="registration-form">
+                <div class="login">
+                    <p>Login</p>
+                    <input type="login-input" name="login-field" placeholder="Login">
+                </div>
+                <div class="email">
+                    <p>Email</p>
+                    <input type="email-input" name="email-field" placeholder="Email">
+                </div>
+                <div class="password">
+                    <p>Password</p>
+                    <input type="password" name="password-field" placeholder="Password">
+                </div>
+                <div class="password-repeat">
+                    <p>Repeat password</p>
+                    <input type="password" name="password-repeat-field" placeholder="Repeat your password">
+                </div>
+                <div class="avatar">
+                    <p>Upload avatar</p>
+                    <div class="choose-avatar">
+                        <input type="avatar-route" name="avatar-route-field" placeholder="Route to your avatar">
+                        <button class="choose-avatar-button">choose</button>
+                    </div>
+                </div>
+                <button class="signup-button">Sign up</button>
+            </div>
+        </div>
+        <aside>
+            <div class="offers">
+                <div class="popular-tags">
+                    <h1>Popular tags</h1>
+                    <nav class="tags">
+                        <div class="tag">
+                            <p class="red-paragraph">Perl</p>
+                        </div>
+                        <div class="tag">
+                            <p class="orange-paragraph">SQL</p>
+                        </div>
+                        <div class="tag">
+                            <p class="brown-paragraph">C++</p>
+                        </div>
+                        <div class="tag">
+                            <p class="blueviolet-paragraph">Golang</p>
+                        </div>
+                        <div class="tag">
+                            <p class="brown-paragraph">Web3</p>
+                        </div>
+                        <div class="tag">
+                            <p class="orange-paragraph">DJango</p>
+                        </div>
+                        <div class="tag">
+                            <p class="chartreuse-paragraph">Firefox</p>
+                        </div>
+                        <div class="tag">
+                            <p class="red-paragraph">Linux</p>
+                        </div>
+                        <div class="tag">
+                            <p class="blueviolet-paragraph">HTML</p>
+                        </div>
+                    </nav>
+                </div>
+                <div class="best-members">
+                    <h1>Best members</h1>
+                    <nav class="members">
+                        <div class="member">
+                            <p class="blueviolet-paragraph">Pavel Durov</p>
+                        </div>
+                        <div class="member">
+                            <p class="brown-paragraph">Pickle Rick</p>
+                        </div>
+                        <div class="member">
+                            <p class="orange-paragraph">Oleg Bunin</p>
+                        </div>
+                        <div class="member">
+                            <p class="red-paragraph">Kreopalov</p>
+                        </div>
+                        <div class="member">
+                            <p class="chartreuse-paragraph">RK6_enjoyer</p>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </aside>
+    </main>
+</body>

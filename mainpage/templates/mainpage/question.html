@@ -1,0 +1,123 @@
+{% extends "mainpage/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/question.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="main-container">
+    <div class="current-question">
+        <div class="avatar-and-counter-block"> <!--я не знаю, как этот блок по нормальному назвать. Это буквально блок для аватарки и счётчика рейтинга-->
+            {% if question.author.avatar %}
+                <img class="question-user-avatar" src="{{ question.author.avatar.url }}" alt="Аватар автора вопроса">
+            {% else %}
+                <img class="question-user-avatar" src="{% static 'images/default-avatar.png' %}" alt="Аватар автора вопроса">
+            {% endif %}
+            <div class="counter">
+                <p class="count">{{ question_rating }}</p>
+                <div class="rating-buttons">
+                    {% if user.is_authenticated %}
+                        <form action="{% url 'mainpage:vote' %}" method="post" class="button-form">
+                            {% csrf_token %}
+                            <input type="hidden" name="target" value="question">
+                            <input type="hidden" name="id" value="{{ question.id }}">
+                            <button type="submit" name="value" value="1" class="rating-increase {% if user_vote_question == 1 %}active{% endif %}"></button>
+                        </form>
+                        
+                        <form action="{% url 'mainpage:vote' %}" method="post" class="button-form">
+                            {% csrf_token %}
+                            <input type="hidden" name="target" value="question">
+                            <input type="hidden" name="id" value="{{ question.id }}">
+                            <button type="submit" name="value" value="-1" class="rating-decrease {% if user_vote_question == -1 %}active{% endif %}"></button>
+                        </form>
+                    {% else %}
+                        <button class="rating-increase"></button>
+                        <button class="rating-decrease"></button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="question-data">
+            <p class="question-title">{{ question.title }}</p>
+            <p class="question-text">{{ question.detailed }}</p>
+            <div class="question-tags">
+                <p>Tags:&nbsp</p>
+                <ul class="tags-list">
+                {% for tag in question.get_tags %}
+                    <li><a href="/?tag={{ tag.title }}">{{ tag.title }}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="answers">
+        {% for answer, user_vote, answer_rating in best_answers %}
+            <div class="answer">
+                <div class="answer-avatar-and-counter-block">
+                    {% if answer.author.avatar %}
+                        <img class="answer-user-avatar" src="{{ answer.author.avatar.url }}" alt="Аватар автора ответа">
+                    {% else %}
+                        <img class="answer-user-avatar" src="{% static 'images/default-avatar.png' %}" alt="Аватар автора ответа">
+                    {% endif %}
+                    <div class="answer-counter">
+                        <p class="answer-count">{{ answer_rating }}</p>
+                        <div class="answer-rating-buttons">
+                            {% if user.is_authenticated %}
+                                <form action="{% url 'mainpage:vote' %}" method="post" class="button-form">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="target" value="answer">
+                                    <input type="hidden" name="id" value="{{ answer.id }}">
+                                    <button type="submit" name="value" value="1" class="answer-rating-increase {% if user_vote == 1 %}active{% endif %}"></button>
+                                </form>
+
+                                <form action="{% url 'mainpage:vote' %}" method="post" class="button-form">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="target" value="answer">
+                                    <input type="hidden" name="id" value="{{ answer.id }}">
+                                    <button type="submit" name="value" value="-1" class="answer-rating-decrease {% if user_vote == -1 %}active{% endif %}"></button>
+                                </form>
+                            {% else %}
+                                <button class="answer-rating-increase"></button>
+                                <button class="answer-rating-decrease"></button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="answer-data">
+                    <p class="answer-text">{{ answer.answer_text }}</p>
+                    <form method="post" action="{% url 'mainpage:mark_correct' aid=answer.id %}">
+                        {% csrf_token %}
+                        <input id="correct-{{ forloop.counter }}" type="checkbox" name="is_correct"
+                            {% if answer.is_correct %}checked{% endif %}
+                            {% if request.user != question.author and not request.user.is_superuser %}disabled{% endif %}
+                            onchange="this.form.submit()">
+                        <label for="correct-{{ forloop.counter }}">Correct!</label>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+        
+        <div class="pagination">
+            {% for page in pages %}
+                <a href="?page={{ page }}">{{ page }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="enter-answer">
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form.answer_text }}
+            {% if form.answer_text.errors %}
+                <div class="textarea-error">
+                    <p>{{ form.answer_text.errors.0 }}</p>
+                </div>
+            {% endif %}
+            </div>
+            <button type="submit" class="answer-button">ANSWER!</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

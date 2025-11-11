@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-family: sans-serif;
+}
+
+.main-container {
+    margin-top: 24px;
+    max-width: 80%;
+    width: 100%;
+    padding: 0 24px;
+}
+
+.main-container h1 {
+    width: 100%;
+}
+
+.login-form {
+    display: grid;
+
+    gap: 20px;
+
+    width: 100%;
+    margin-top: 24px;
+}
+
+.login-form p {
+    font-size: 24px;
+    min-width: 60px;
+}
+
+.login, .password {
+    display: flex;
+    width: 100%;
+}
+
+.login p, .password p {
+    width: 180px;
+}
+
+.login input, .password input {
+    border: 1px solid gray;
+    border-radius: 6px;
+
+    width: 210px;
+    height: 34px;
+    font-size: 16px;
+
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.login input:focus, .password input:focus  {
+    border-color: black;
+    outline: none;
+}
+
+.login-button {
+    max-width: 70px;
+    margin-left: 180px;
+    margin-top: -5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+
+    font-size: 22px;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+    background-color: rgb(179, 164, 4);
+}
+.login-button:hover {
+    background-color: olive;
+    transition: background-color 0.25s ease;
+}
+.login-button:active {
+    transform: translateY(2px);
+    background-color: brown;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+[type="error"] {
+    color: red;
+
+    font-size: 20px;
+
+    padding-top: 20px;
+    margin-bottom: -20px;
+}
+
+.create-new-account-link {
+    margin-left: 180px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+
+    font-size: 18px;
+
+    border: none;
+    border-radius: 6px;
+}

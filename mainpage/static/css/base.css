@@ -1,0 +1,271 @@
+* {
+    box-sizing: border-box;
+    padding: 0%;
+    margin: 0%;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+
+    background-color: white;
+    border-bottom: 1px solid gray;   
+}
+
+.logo-link {
+    text-decoration: none;
+    color: black;
+
+    width: 216px;
+    margin: 2px;
+
+    display: flex;
+    align-items: center;
+}
+
+.site-name {
+    font-size: 40px;
+    font-family: sans-serif;
+    font-weight: 200;
+}
+
+.site-avatar {
+    border: none;
+    border-radius: 6px;
+    margin: 10px;
+    width: 80px;
+}
+
+header .search {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 400px;
+    height: 36px;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    border: 1px solid gray;
+    border-radius: 6px;
+
+    padding: 2px;
+}
+.search-form:focus-within {
+    outline: 1px solid rgb(120, 84, 228);
+    outline-offset: 2px;
+}
+
+header input[type="text"] {
+    font-size: 18px;
+
+    outline: none;
+    background: none;
+
+    border: none;
+    display: inline-flex;
+    padding: 4px;
+
+    width: 100%;
+}
+
+header .search-icon {
+    width: 12px;
+    height: 12px;
+
+    margin-left: 10px;
+}
+
+header .search-button {
+    font-size: 18px;
+
+    padding: 2px;
+    margin-right: 2px;
+
+    height: 26px;
+
+    border: none;
+    border-radius: 3px;
+    background-color: white;
+    cursor: pointer;
+}
+header .search-button:hover {
+    background-color: rgb(209, 209, 209);
+    transition: background-color 0.25s ease;
+}
+
+header .profile {
+    justify-content: flex-end;
+    margin-right: 8%;
+}
+
+header .profile #not-authorized a {
+    display: flex;
+    display: inline-flex;
+    gap: 4px;
+    align-items: center;
+}
+
+header .profile #authorized {
+    display: flex;
+    align-items: center;
+}
+
+#not-authorized .login-button {
+    width: 63px;
+    padding: 2px 4px;
+
+    font-size: 18px;
+    font-family: sans-serif;
+    color: rgb(120, 84, 228);
+
+    border: 1px solid rgb(120, 84, 228);
+    border-radius: 6px;
+    background-color: white;
+
+    text-decoration: none;
+    text-align: center;
+}
+#not-authorized .login-button:hover {
+    background-color: rgb(172, 211, 255);
+    transition: background-color 0.25s ease;
+}
+
+#not-authorized .signup-button {
+    min-width: 76px;
+    padding: 2px 6px;
+
+    font-size: 18px;
+    font-family: sans-serif;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+    background-color: rgb(120, 84, 228);
+
+    text-decoration: none;
+    text-align: center;
+}
+#not-authorized .signup-button:hover {
+    background-color: rgb(70, 65, 200);
+    transition: background-color 0.25s ease;
+}
+
+#authorized .user-avatar {
+    border: none;
+    border-radius: 50%;
+    margin-right: 10px;
+    width: 70px;
+}
+
+#authorized .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+#authorized .username {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: sans-serif;
+}
+
+#authorized .user-links {
+    display: flex;
+    gap: 24px;
+}
+
+#authorized .user-links a {
+    color: blueviolet;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+#authorized .user-links a:hover {
+    text-decoration: underline;
+}
+
+#authorized .user-links button {
+    color: blueviolet;
+    font-size: 16px;
+    font-family: sans-serif;
+    text-decoration: none;
+
+    border: none;
+    background-color: white;
+}
+#authorized .user-links button:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+
+/* Конец header-а. Ниже - стиль блока с предложениями. */
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-family: sans-serif;
+}
+
+aside {
+    width: 15%;
+    margin-top: 24px;
+    margin-right: 75px;
+}
+
+.offers {
+    display: block;
+
+    margin-top: 1%;
+    margin-right: 4%;
+
+    font-family: sans-serif;
+}
+
+.offers h1 {
+    font-size: 36px;
+}
+
+.popular-tags .tags, .best-members .members {
+    list-style: none;
+    display: block;
+    flex-wrap: wrap;
+    width: 250px;
+    gap: 18px;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.popular-tags .tags li, .best-members .members li {
+    display: inline;
+    font-size: 18px;
+}
+
+.popular-tags .tags li a, .best-members .members li a {
+    text-decoration: none;
+    padding: 4px 8px;
+    display: inline-block;
+}
+
+.blueviolet { color: blueviolet; }
+.brown { color: brown; }
+.chartreuse { color: chartreuse; }
+.orange { color: orange; }
+.red { color: red; }

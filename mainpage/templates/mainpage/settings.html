@@ -1,0 +1,60 @@
+{% extends "mainpage/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/settings.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="main-container">
+    <h1>Settings: {{ user.username }}</h1>
+    <form method="post" enctype="multipart/form-data" class="settings-form">
+        {% csrf_token %}
+        <div class="login">
+            <p>Login</p>
+            {{ form.username }}
+        </div>
+
+        {% if form.username.errors %}
+            <div type="error" class="login-error"><p>You must enter the login.</p></div>
+        {% endif %}
+
+        <div class="email">
+            <p>Email</p>
+            {{ form.email }}
+        </div>
+        {% if form.username.errors %}
+            <div type="error" class="email-error"><p>You must enter your email.</p></div>
+        {% endif %}
+
+        {% comment %}
+        Никнейм для юзеров добавлю позже, пока это не принципиально
+
+        <div class="nickname">
+            <p>NickName</p>
+            <input type="nickname-input" name="nickname-field" placeholder="NickName">
+        </div>
+        <div type="error" class="nickname-error"><p>You must enter at least one tag.</p></div>
+        {% endcomment %}
+
+        <div class="avatar">
+            <p>Upload avatar</p>
+            
+            <div class="avatar-upload-block">
+                {% if user.avatar %}
+                    <img class="uploaded-avatar" src="{{ user.avatar.url }}" alt="Аватар пользователя">
+                {% else %}
+                    <img class="uploaded-avatar" src="{% static 'images/default-avatar.png' %}" alt="Аватар пользователя">
+                {% endif %}
+                <div class="choose-avatar">
+                    {{ form.avatar }}
+                </div>
+            </div>
+        </div>
+        {% if form.avatar.errors %}
+            <div type="error" class="avatar-error"><p>Avatar route cannot be empty.</p></div>
+        {% endif %}
+        <button type="submit" class="save-button">Save!</button>
+    </form>
+</div>
+{% endblock %}

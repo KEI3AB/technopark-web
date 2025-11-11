@@ -1,0 +1,53 @@
+{% extends "mainpage/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="main-container">
+    <h1>
+        Newest Questions
+        <a href="{% url 'mainpage:ask' %}">Ask your question!</a>
+        <!-- <span><a href="#">Hot Questions</a></span> -->
+    </h1>
+    <div class="questions-list">
+        {% for question in new_questions %}
+            <div class="question">
+                <div class="question-data">
+                    {% if question.author.avatar %}
+                        <img class="question-user-avatar" src="{{ question.author.avatar.url }}" alt="Аватар автора вопроса">
+                    {% else %}
+                        <img class="question-user-avatar" src="{% static 'images/default-avatar.png' %}" alt="Аватар автора вопроса">
+                    {% endif %}
+                    <div class="question-text">
+                        <a href="/question/{{ question.slug }}">{{ question.title }}</a>
+                        <p>{{ question.detailed }}</p>
+                    </div>
+                </div>
+                <div class="question-info">
+                    <div class="votes-answers">
+                        <p>{{ question.answers_count }} answers</p>
+                        <p>{{ question.rating }} votes</p>
+                    </div>
+                    <div class="question-tags">
+                        <p class="tags-header">Tags:&nbsp;</p>
+                        <ul class="tags-list">
+                            {% for tag in question.get_tags %}
+                            <li><a href="/?tag={{ tag.title }}">{{ tag.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="pagination">
+    {% for page in pages %}
+        <a href="?page={{ page }}{% if request.GET.tag %}&tag={{ request.GET.tag }}{% endif %}{% if request.GET.author %}&author={{ request.GET.author }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">{{ page }}</a>
+    {% endfor %}
+</div>
+<div class="white-block"></div>
+{% endblock %}

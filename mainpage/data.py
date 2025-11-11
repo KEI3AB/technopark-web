@@ -1,0 +1,38 @@
+tag_list = [
+    {'slug': 'python', 'text': 'Python', 'color': 'blueviolet-paragraph', 'popularity': 150},
+    {'slug': 'django', 'text': 'Django', 'color': 'brown-paragraph', 'popularity': 120},
+    {'slug': 'web-development', 'text': 'Web Development', 'color': 'chartreuse-paragraph', 'popularity': 100},
+    {'slug': 'javascript', 'text': 'JavaScript', 'color': 'orange-paragraph', 'popularity': 130},
+    {'slug': 'html-css', 'text': 'HTML & CSS', 'color': 'red-paragraph', 'popularity': 70},
+    {'slug': 'react', 'text': 'React', 'color': 'blueviolet-paragraph', 'popularity': 90},
+    {'slug': 'nodejs', 'text': 'Node.js', 'color': 'brown-paragraph', 'popularity': 80},
+    {'slug': 'databases', 'text': 'Databases', 'color': 'chartreuse-paragraph', 'popularity': 60},
+    {'slug': 'rest-api', 'text': 'REST API', 'color': 'orange-paragraph', 'popularity': 110},
+    {'slug': 'devops', 'text': 'DevOps', 'color': 'red-paragraph', 'popularity': 250},
+    {'slug': 'machine-learning', 'text': 'Machine Learning', 'color': 'blueviolet-paragraph', 'popularity': 200},
+    {'slug': 'data-science', 'text': 'Data Science', 'color': 'brown-paragraph', 'popularity': 140},
+    {'slug': 'alcogholism', 'text': 'Alcogholism', 'color': 'chartreuse-paragraph', 'popularity': 420},
+    {'slug': 'mental-health', 'text': 'Mental Health', 'color': 'orange-paragraph', 'popularity': 130},
+    {'slug': 'productivity', 'text': 'Productivity', 'color': 'red-paragraph', 'popularity': 67},
+    {'slug': 'career-development', 'text': 'Career Development', 'color': 'blueviolet-paragraph', 'popularity': 85},
+    {'slug': 'work-life-balance', 'text': 'Work-Life Balance', 'color': 'brown-paragraph', 'popularity': 1},
+    {'slug': 'self-improvement', 'text': 'Self-Improvement', 'color': 'chartreuse-paragraph', 'popularity': 15},
+    {'slug': 'Daryana', 'text': 'Daryana', 'color': 'orange-paragraph', 'popularity': 300},
+]
+
+member_list = [
+    {'slug': 'Pavel Durov', 'text': 'Pavel Durov', 'color': 'blueviolet-paragraph', 'popularity': 300},
+    {'slug': 'Elon Musk', 'text': 'Elon Musk', 'color': 'brown-paragraph', 'popularity': 250},
+    {'slug': 'Mark Zuckerberg', 'text': 'Mark Zuckerberg', 'color': 'chartreuse-paragraph', 'popularity': 115},
+    {'slug': 'Ada Lovelace', 'text': 'Ada Lovelace', 'color': 'orange-paragraph', 'popularity': 180},
+    {'slug': 'Alan Turing', 'text': 'Alan Turing', 'color': 'red-paragraph', 'popularity': 220},
+    {'slug': 'Linus Torvalds', 'text': 'Linus Torvalds', 'color': 'brown-paragraph', 'popularity': 6969},
+    {'slug': 'Pickle Rick', 'text': 'Pickle Rick', 'color': 'chartreuse-paragraph', 'popularity': 1337},
+    {'slug': 'Oleg Bunin', 'text': 'Oleg Bunin', 'color': 'orange-paragraph', 'popularity': 400},
+    {'slug': 'Vladimir Putin', 'text': 'Vladimir Putin', 'color': 'red-paragraph', 'popularity': 1488},
+    {'slug': 'Tim Cook', 'text': 'Tim Cook', 'color': 'blueviolet-paragraph', 'popularity': 175},
+    {'slug': 'Bernard Arnault', 'text': 'Bernard Arnault', 'color': 'brown-paragraph', 'popularity': 95},
+    {'slug': 'Warren Buffett', 'text': 'Warren Buffett', 'color': 'chartreuse-paragraph', 'popularity': 110},
+    {'slug': 'Jeff Bezos', 'text': 'Jeff Bezos', 'color': 'orange-paragraph', 'popularity': 200},
+    {'slug': 'Bill Gates', 'text': 'Bill Gates', 'color': 'red-paragraph', 'popularity': 225}
+]

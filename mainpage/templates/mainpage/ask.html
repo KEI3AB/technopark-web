@@ -1,0 +1,46 @@
+{% extends "mainpage/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/ask.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>New question</h1>
+<form method="post" novalidate>
+    {% csrf_token %}
+    <div class="question-form">
+
+        <div class="question-title">
+            <p>Title</p>
+            {{ form.title }}
+        </div>
+        {% if form.title.errors %}
+            <div type="error" class="question-title-error">
+                <p>{{ form.title.errors.0 }}</p>
+            </div>
+        {% endif%}
+
+        <div class="question-text">
+            <p>Text</p>
+            {{ form.detailed }}
+        </div>
+        {% if form.detailed.errors %}
+            <div type="error" class="question-text-error">
+                <p>{{ form.detailed.errors.0 }}</p>
+            </div>
+        {% endif %}
+
+        <div class="question-tags">
+            <p>Tags</p>
+            {{ form.tags_text }}
+        </div>
+        {% if form.tags_text.errors %}
+            <div type="error" class="question-tags-error">
+                <p>{{ form.tags_text.errors.0 }}</p>
+            </div>
+        {% endif %}
+        <button type="submit" class="ask-button">ASK!</button>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "mainpage/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/registration.css' %}">
+{% endblock %}
+
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h1>Registration</h1>
+    <div class="question-form">
+        <div class="login">
+            <p>Login</p>
+            {{ form.username }}
+            {% for e in form.username.errors %}
+                <div type="error">{{ e }}</div>
+            {% endfor %}
+        </div>
+        <div class="email">
+            <p>Email</p>
+            {{ form.email }}
+            {% for e in form.email.errors %}
+                <div type="error">{{ e }}</div>
+            {% endfor %}
+        </div>
+        <div class="password">
+            <p>Password</p>
+            {{ form.password1 }}
+            {% for e in form.password1.errors %}
+                <div type="error">{{ e }}</div>
+            {% endfor %}
+        </div>
+        <div class="password-repeat">
+            <p>Repeat password</p>
+            {{ form.password2 }}
+            {% for e in form.password2.errors %}
+                <div type="error">{{ e }}</div>
+            {% endfor %}
+        </div>
+        <button type="submit" class="registration-button">Sign up</button>
+    </div>
+</form>
+{% endblock %}

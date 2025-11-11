@@ -1,0 +1,28 @@
+{% extends "mainpage/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>Log In</h1>
+{% if form.errors %}
+<div type="error" class="login-error">
+    <p>Wrong username or password.</p>
+</div>
+{% endif %}
+<form method="post" action="{% url 'mainpage:login' %}" class="login-form">
+    {% csrf_token %}
+    <div class="login">
+        <p>Login</p>
+        <input type="login-input" name="username" placeholder="Login" required>
+    </div>
+    <div class="password">
+        <p>Password</p>
+        <input type="password" name="password" placeholder="Password" required>
+    </div>
+    <button type="submit" class="login-button">Log in</button>
+    <a href="{% url 'mainpage:registration' %}" class="create-new-account-link">Create new account</a>
+</form>
+{% endblock %}

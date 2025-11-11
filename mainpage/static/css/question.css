@@ -1,0 +1,357 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-family: sans-serif;
+}
+
+.main-container {
+    display: grid;
+    margin-top: 24px;
+    max-width: 80%;
+    width: 100%;
+    padding: 0 24px;
+}
+
+
+.button-form {
+    display: grid;
+    width: 0%;
+}
+
+.current-question {
+    display: flex;
+
+    width: 100%;
+    
+    border-bottom: 1px solid black;
+}
+
+.avatar-and-counter-block {
+    display: grid;
+
+    flex: 0 0 120px;
+    height: fit-content;
+    gap:40px;
+    margin: 20px;
+}
+
+.avatar-and-counter-block .counter {
+    display: flex;
+
+    width: fit-content;
+    height: 30px;
+    border: 1px solid black;
+}
+
+.counter .count {
+    font-size: 20px;
+
+    padding-left: 4px;
+    padding-right: 4px;
+    border-right: 1px solid black;
+
+}
+
+.rating-buttons {
+    display: grid;
+
+    padding: 4px;
+    gap: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.rating-buttons button {
+    height: 10px;
+    width: 14px;
+
+    border: none;
+    background-color: black;
+}
+
+.rating-buttons .rating-increase {
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+.rating-buttons .rating-increase:hover {
+    background-color: goldenrod;
+    transition: all 0.10s ease;
+}
+.rating-buttons .rating-increase:active {
+    transform: translateY(1px);
+    background-color: rgb(23, 215, 75);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.rating-buttons .rating-decrease {
+    clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+}
+.rating-buttons .rating-decrease:hover {
+    background-color: red;
+    transition: all 0.10s ease;
+}
+.rating-buttons .rating-decrease:active {
+    transform: translateY(-1px);
+    background-color: rgb(213, 0, 0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.question-user-avatar {
+    border-radius: 10px;
+
+    width: 100px;
+    height: 100px;
+}
+
+.question-data {
+    display: grid;
+}
+
+.question-title {
+    font-size: 40px;
+}
+
+.question-text {
+    padding-top: 16px;
+    font-size: 18px;
+}
+
+.question-tags {
+    display: flex;
+    line-height: 2;
+    padding-top: 32px;
+    padding-bottom: 16px;
+    font-size: 18px;
+
+    list-style: none;
+}
+.tags-list li:not(:last-child):after {
+    content: ',';
+}
+.tags-list li {
+    display: inline;
+}
+.question-tags .tags-list li a{
+    text-decoration: none;
+    color: black;
+    
+    padding: 2px;
+    border-radius: 6px;
+
+    background-color: rgb(225, 225, 225);
+}
+.question-tags .tags-list li a:hover{
+    background-color: lightgray;
+}
+
+
+
+/*Ответы*/
+
+.answers {
+    display: grid;
+    padding-top: 32px;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+.answer {
+    display: flex;
+    width: 100%;
+    border: 1px solid black;
+    margin-bottom: 32px;
+}
+
+.answer-avatar-and-counter-block {
+    display: grid;
+
+    height: fit-content;
+    flex: 0 0 120px;
+    gap:40px;
+    margin: 20px;
+}
+
+.answer-user-avatar {
+    border-radius: 50%;
+
+    width: 70px;
+    height: 70px;
+}
+
+.answer-avatar-and-counter-block .answer-counter {
+    display: flex;
+
+    width: fit-content;
+    height: 30px;
+    border: 1px solid black;
+}
+
+.answer-counter .answer-count {
+    font-size: 20px;
+
+    padding-left: 4px;
+    padding-right: 4px;
+    border-right: 1px solid black;
+
+}
+
+.answer-counter .answer-rating-buttons {
+    display: grid;
+
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.answer-rating-buttons button {
+    height: 10px;
+    width: 14px;
+
+    border: none;
+    background-color: black;
+}
+
+.answer-rating-buttons .answer-rating-increase {
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+.answer-rating-buttons .answer-rating-increase:hover {
+    background-color: goldenrod;
+    transition: all 0.10s ease;
+}
+.answer-rating-buttons .answer-rating-increase:active {
+    transform: translateY(1px);
+    background-color: rgb(23, 215, 75);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.answer-rating-buttons .answer-rating-decrease {
+    clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+}
+.answer-rating-buttons .answer-rating-decrease:hover {
+    background-color: red;
+    transition: all 0.10s ease;
+}
+.answer-rating-buttons .answer-rating-decrease:active {
+    transform: translateY(-1px);
+    background-color: rgb(213, 0, 0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.answer-data {
+    display: grid;
+    align-content: space-between;
+
+    padding-bottom: 16px;
+}
+
+.answer-text {
+    padding-top: 16px;
+    font-size: 18px;
+}
+
+.answer-text a {
+    text-decoration: none;
+    color: rgb(0, 0, 200);
+}
+
+
+.pagination {
+    display: flex;
+
+    margin-top: 24px;
+    max-width: 80%;
+    width: 100%;
+    padding: 10px 24px;
+
+    font-size: 24px;
+    gap: 10px;
+}
+
+.pagination a {
+    color: black;
+    text-decoration: none;
+    padding: 0 6px;
+
+    border: 1px solid black;
+    border-radius: 6px;
+}
+.pagination a:hover {
+    background-color: rgb(221, 221, 222);
+    transition: background-color 0.25s ease;
+}
+
+.enter-answer {
+    box-sizing: border-box;
+    display: grid;
+    max-width: 100%;
+    width: 100%;
+
+    padding-top: 30px;
+    gap: 20px;
+}
+
+[type="error"] {
+    color: red;
+
+    font-size: 20px;
+}
+
+.enter-answer textarea {
+    resize: none;
+    display: flex;
+
+    width: 100%;
+    max-width: 65%;
+
+    height: 180px;
+    font-size: 18px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.answer-button {
+    width: 105px;
+    margin-top: 15px;
+
+    font-size: 22px;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+    background-color: rgb(179, 164, 4);
+}
+.answer-button:hover {
+    background-color: olive;
+    transition: background-color 0.25s ease;
+}
+.answer-button:active {
+    background-color: yellow;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.counter .rating-buttons .rating-increase.active {
+    background-color: rgb(23, 215, 75);
+}
+.counter .rating-buttons .rating-decrease.active {
+    background-color: rgb(213, 0, 0);
+}
+
+.answer-counter .answer-rating-buttons .answer-rating-increase.active {
+    background-color: rgb(23, 215, 75);
+}
+.answer-counter .answer-rating-buttons .answer-rating-decrease.active {
+    background-color: rgb(213, 0, 0);
+}
+
+.white-block {
+    height: 100px;
+}

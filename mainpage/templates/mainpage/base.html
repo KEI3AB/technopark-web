@@ -1,0 +1,96 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="icon" href="{% static 'images/site-avatar.png' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a class="logo-link" href="{% url 'mainpage:index' %}">
+                <img class="site-avatar" src="{% static 'images/site-avatar.png' %}" alt="Логотип сайта Ask Eldar">
+                <p class="site-name">Ask Eldar</p>
+            </a>
+        </div>
+
+        <div class="search" role="search">
+            <form action="/" method="get" class="search-form">
+                <img class="search-icon" src="{% static 'images/loupe-icon.png' %}" alt="Иконка поиска">
+                <input type="text" name="search" placeholder="Search...">
+                <button type="submit" class="search-button">ASK!</button>
+            </form>
+        </div>
+
+        <div class="profile">
+            {% if user.is_authenticated %}
+                <div id="authorized">
+                    {% if user.avatar %}
+                        <img class="user-avatar" src="{{ user.avatar.url }}" alt="Аватар пользователя">
+                    {% else %}
+                        <img class="user-avatar" src="{% static 'images/default-avatar.png' %}" alt="Аватар пользователя">
+                    {% endif %}
+                    <div class="user-info">
+                        <p class="username">{{ user.username }}</p>
+                        <div class="user-links">
+                            <a type="button" href="{% url 'mainpage:settings' %}">Settings</a>
+                            <form action="{% url 'mainpage:logout' %}" method="post" class="logout-form">
+                                {% csrf_token %}
+                                <button type="submit" class="logout-button">Log out</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div id="not-authorized">
+                    <a type="button" class="login-button" href="{% url 'mainpage:login' %}">Log in</a>
+                    <a type="button" class="signup-button" href="{% url 'mainpage:registration' %}">Sign up</a>
+                </div>
+                
+            {% endif %}
+        </div>
+    </header>
+    <main>
+        <div class="main-container">
+            {% block content %}{% endblock %}
+        </div>
+
+        <aside>
+            <div class="offers">
+                <div class="popular-tags">
+                    <h1>Popular tags</h1>
+                    <nav>
+                        <ul class="tags">
+                            {% for tag in tags_list %}
+                                <li class="tag">
+                                    <a href="/?tag={{ tag.slug }}" class="{{ tag.color }}">{{ tag.title }}</a>
+                                </li>
+                            {% empty %}
+                                <li>No tags</li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                </div>
+                <div class="best-members">
+                    <h1>Best members</h1>
+                    <nav>
+                        <ul class="members">
+                            {% for member in members_list %}
+                                <li class="member">
+                                    <a href="/?author={{ member.slug }}" class="{{ member.color }}">{{ member.username }}</a>
+                                </li>
+                            {% empty %}
+                                <li>No members</li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </aside>
+    </main>
+</body>
